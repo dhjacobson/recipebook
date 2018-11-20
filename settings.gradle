@@ -1,0 +1,4 @@
+include ':app'
+
+include ":recipebook-commons"
+project(":recipebook-commons").projectDir = file("../recipebook-commons")

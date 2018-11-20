@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My First App</string>
+    <string name="string_name">text_string</string>
+    <string name="my_recipes">My Recipes</string>
+    <string name="search">Search</string>
+    <string name="browse">Browse</string>
+    <string name="action_add_recipe">Add Recipe</string>
+</resources>

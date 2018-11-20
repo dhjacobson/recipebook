@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.recipebook"
+        minSdkVersion 26
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g" //specify the heap size for the dex process
+    }
+
+}
+
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation ('com.android.support.test:runner:1.0.2') {
+        exclude group: 'com.android.support'
+    }
+    androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.2') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+
+    implementation 'com.android.support:design:26.1.0'
+
+    implementation group: 'com.android.volley', name: 'volley', version: '1.1.0'
+//    implementation group: 'com.mcxiaoke.volley', name: 'library', version: '1.0.19'
+
+    // added to deal with Ljavax/xml/bind/annotation/XmlElement error related to java 8/9
+//    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+
+    // recipebook-commons containing models and utils
+    implementation project(":recipebook-commons")
+
+
+    // java api for volume and weight quantities
+//    implementation group: 'tec.uom', name: 'uom-se', version: '1.0.9'
+//    implementation group: 'systems.uom', name: 'systems-common', version: '0.9'
+
+    // coucbase nosql db
+//    implementation group: 'com.couchbase.lite', name: 'couchbase-lite-java-core', version: '1.4.3'
+//    implementation group: 'com.couchbase.lite', name: 'couchbase-lite-android', version: '2.0.2'
+}
